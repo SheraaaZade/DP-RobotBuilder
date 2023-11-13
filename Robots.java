@@ -3,51 +3,54 @@ public class Robots implements Robot {
     private final int canon;
     private final int shield;
     private final int freq;
+    private String name;
 
-    public Robots(int canon, int shield, int freq) {
-        this.canon = canon;
-        this.shield = shield;
-        this.freq = freq;
+    private Robots(RobotBuilder robot) {
+        this.shield = robot.puissanceBouclier;
+        this.freq = robot.frequenceTir;
+        this.ptVie = robot.ptVie;
+        this.canon = robot.puissanceCanon;
+        this.name = robot.name;
     }
-
 
     @Override
     public int getCanon() {
-        return 0;
+        return canon;
     }
 
     @Override
     public int getShield() {
-        return 0;
+        return shield;
     }
 
     @Override
     public int getFreq() {
-        return 0;
+        return freq;
     }
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
     public int diffLife(int i) {
-        return 0;
+        this.ptVie += i;
+        return ptVie;
     }
 
-    private static class RobotBuilder {
-        private int ptVie;
+    public static class RobotBuilder {
+        private int ptVie = 100;
         private int puissanceCanon = 1;
         private int puissanceBouclier = 1;
         private int frequenceTir = 100;
+        private String name;
 
-        public RobotBuilder(int ptVie, int puissanceCanon) {
-            this.ptVie = ptVie;
-            this.puissanceCanon = puissanceCanon;
+        public RobotBuilder(String name) {
+            this.name = name;
         }
 
-        public RobotBuilder puissanceCanon(int puissanceBouclier) {
+        public RobotBuilder puissanceBouclier(int puissanceBouclier) {
             this.puissanceBouclier = puissanceBouclier;
             return this;
         }
@@ -57,6 +60,18 @@ public class Robots implements Robot {
             return this;
         }
 
+        public RobotBuilder ptVie(int ptVie) {
+            this.ptVie = ptVie;
+            return this;
+        }
 
+        public RobotBuilder puissanceCanon(int puissanceCanon) {
+            this.puissanceCanon = puissanceCanon;
+            return this;
+        }
+
+        public Robots build() {
+            return new Robots(this);
+        }
     }
 }
