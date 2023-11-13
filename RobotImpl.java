@@ -1,11 +1,11 @@
-public class Robots implements Robot {
+public class RobotImpl implements Robot {
     private int ptVie;
     private final int canon;
     private final int shield;
     private final int freq;
     private String name;
 
-    private Robots(RobotBuilder robot) {
+    private RobotImpl(RobotBuilder robot) {
         this.shield = robot.puissanceBouclier;
         this.freq = robot.frequenceTir;
         this.ptVie = robot.ptVie;
@@ -70,8 +70,8 @@ public class Robots implements Robot {
             return this;
         }
 
-        public Robots build() {
-            return new Robots(this);
+        public RobotImpl build() {
+            return new RobotImpl(this);
         }
     }
 }

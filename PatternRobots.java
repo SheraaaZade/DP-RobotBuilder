@@ -27,7 +27,7 @@ public class PatternRobots {
     }
 
     public static void main(String[] args) {
-        Robot robot1 = new Robots.RobotBuilder("Robot1")
+        Robot robot1 = new RobotImpl.RobotBuilder("Robot1")
                 .puissanceCanon(10)
                 .puissanceBouclier(2)
                 .frequenceTir(100)
@@ -35,7 +35,7 @@ public class PatternRobots {
         // un robot avec un canon de 10, un bouclier de 2, une fréquence de tir de 100 et
         // qui a reçu une amélioration de canon multipliant la puissance de ce dernier par 2.
 
-        Robot robot2 = new Robots.RobotBuilder("Robot2")
+        Robot robot2 = new RobotImpl.RobotBuilder("Robot2")
                 .puissanceCanon(9)
                 .puissanceBouclier(3)
                 .frequenceTir(90)
