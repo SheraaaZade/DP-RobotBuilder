@@ -46,5 +46,17 @@ public class PatternRobots {
         // une amélioration de mitigation des dégats qui réduit les points de vue perdus par 2.
 
         fight(robot1, robot2);
+        System.out.println("---------------------------------");
+
+        Flyweight f = new Flyweight();
+        f.ajouterFlyweight("Picvert", new PicVertFactory());
+        f.ajouterFlyweight("GrosseBerta", new GrosseBertaFactory());
+        f.ajouterFlyweight("Tank", new TankFactory());
+
+        robot1 = f.creerRobot("Picvert");
+        robot2 = f.creerRobot("Tank");
+
+        fight(robot1, robot2);
+
     }
 }
